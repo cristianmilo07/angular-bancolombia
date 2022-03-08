@@ -1,0 +1,39 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggleMenu()">
+      <img src="./assets/svg/icon_menu.svg" alt="menu">
+    </button>
+    <a href="">
+      <img src="./assets/images/bancolombia.png" style="width: 50px" alt="logo">
+    </a>
+
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggleMenu()">Close</button>
+    <ul>
+      <li><a href="">Bancolombia</a></li>
+      <li><a href="">Cripto monedas</a></li>
+      <li><a href="">Términos y condiciones</a></li>
+    </ul>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="./assets/images/bancolombia.png" style="width: 50px" alt="logo">
+      </a>
+      <ul>
+        <li><a href="">Bancolombia  |</a></li>
+        <li><a href="">Cripto monedas   |</a></li>
+        <li><a href="">Términos y condiciones</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">
+        <button mat-raised-button color="accent" *ngIf="!profile; else elseBlock" (click)="login()">Ingresar</button>
+        <ng-template #elseBlock>{{ profile?.email }}</ng-template>
+      </div>
+    </div>
+  </div>
+</div>

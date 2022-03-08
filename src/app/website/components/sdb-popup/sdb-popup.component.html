@@ -1,0 +1,31 @@
+<h1>Listado de monedas</h1>
+<form [formGroup]="form" (ngSubmit)="send()">
+  <mat-grid-list cols="4" rowHeight="70px">
+    <mat-form-field appearance="fill" class="breadth">
+      <mat-label>Símbolo</mat-label>
+      <mat-select [(value)]="selected" formControlName="simbolo">
+        <mat-option></mat-option>
+        <mat-option [value]="option.value" *ngFor="let option of valueBitcoins">{{ option.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="70px">
+    <mat-form-field appearance="fill" class="breadth">
+      <mat-label>Nombre</mat-label>
+      <mat-select [(value)]="selecteds" formControlName="simbolo">
+        <mat-option></mat-option>
+        <mat-option [value]="symbol.value" *ngFor="let symbol of symbols">{{ symbol.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="70px">
+    <mat-form-field appearance="fill" class="breadth">
+      <mat-label>Tasa de cambio</mat-label>
+      <input matInput formControlName="tasa">
+    </mat-form-field>
+  </mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="70px">
+    <button mat-raised-button color="accent" style="margin-right: 8px;">Guardar</button>
+    <button mat-raised-button style="margin-left: 38px;" >Cancelar</button>
+  </mat-grid-list>
+</form>
